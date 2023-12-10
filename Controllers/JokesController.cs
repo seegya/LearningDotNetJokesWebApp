@@ -36,7 +36,7 @@ namespace JokesWebApp.Controllers
         }
 
         // GET: Jokes/ShowSearchResult
-        public async Task<IActionResult> ShowSearchResult(String SearchTerm)
+        public async Task<IActionResult> ShowSearchResult(String SearhchPhrase)
         {
             return _context.Joke != null ?
                         View() :
