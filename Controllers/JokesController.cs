@@ -36,11 +36,11 @@ namespace JokesWebApp.Controllers
         }
 
         // GET: Jokes/ShowSearchResult
-        public async Task<IActionResult> ShowSearchResult(String SearhchPhrase)
+        public async Task<IActionResult> ShowSearchResult(String SearchPhrase)
         {
             return _context.Joke != null ?
-                        View() :
-                        Problem("Entity set 'ApplicationDbContext.Joke'  is null.");
+                          View("Index",await _context.Joke.Where( j => j.JokeQuestion.Contains(SearchPhrase)).ToListAsync()) :
+                          Problem("Entity set 'ApplicationDbContext.Joke'  is null.");
         }
 
         // GET: Jokes/Details/5
